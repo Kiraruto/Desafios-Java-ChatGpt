@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
@@ -6,12 +7,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o número que você deseja verificar");
 
-        Long numberVerify = scanner.nextLong();
+        BigInteger numberVerify = scanner.nextBigInteger();
+        BigInteger numberFor = BigInteger.ONE;
 
-        if (numberVerify % 2 == 0 ) {
-            System.out.println("O número é PAR");
-        } else {
-            System.out.println("O número é IMPAR");
+        for (BigInteger i = numberVerify; i.compareTo(BigInteger.ONE) > 0; i = i.subtract(BigInteger.ONE)) {
+            numberFor = numberFor.multiply(i);
+            System.out.println(numberFor);
         }
+
+
     }
 }
